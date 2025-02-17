@@ -1,38 +1,22 @@
-"use client";
-
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-import { useEffect, useState } from "react";
+import ThemeSwitch from "@/components/theme_switch";
+import SearchBar from "@/components/search_bar";
 
 export default function HomePage() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* 상단 네비게이션 바 */}
       <header className="flex items-center justify-between p-4 border-b">
         <div className="text-xl font-bold">🛒 스마트픽</div>
-        <input type="text" placeholder="검색창" className="p-2 border rounded-md w-1/3" />
+        {/* <input type="text" placeholder="검색창" className="p-2 border rounded-md w-1/3" /> */}
+        <div className="w-1/3">
+          <SearchBar />
+        </div>
         <div className="flex items-center gap-4">
           <Button>로그인</Button>
           <Button>회원가입</Button>
           <Button>장바구니</Button>
-
-          {/* 라이트/다크모드 토글 */}
-          {mounted && (
-            <Switch
-              checked={theme === "dark"}
-              onCheckedChange={() => setTheme(theme === "dark" ? "light" : "dark")}
-            />
-          )}
-          <Label>{theme === "dark" ? "다크모드" : "라이트모드"}</Label>
+          <ThemeSwitch />
         </div>
       </header>
 
