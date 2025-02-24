@@ -4,7 +4,7 @@ import SearchBar from "@/components/search_bar";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen min-w-[1440px] min-h-[768px] bg-background text-foreground overflow-auto">
       {/* 상단 네비게이션 바 */}
       <header className="flex items-center justify-between p-4 border-b">
         <div className="text-xl font-bold">🛒 스마트픽</div>
@@ -15,13 +15,14 @@ export default function HomePage() {
         <div className="flex items-center gap-4">
           <Button>로그인</Button>
           <Button>회원가입</Button>
+          <Button>마이페이지</Button>
           <Button>장바구니</Button>
           <ThemeSwitch />
         </div>
       </header>
 
       {/* 본문 레이아웃 */}
-      <main className="p-8">
+      <main className="p-8 ">
         <div className="flex gap-6">
           {/* 왼쪽 사이드바 */}
           <aside className="w-1/6 space-y-4">
